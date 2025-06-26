@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>To My Baby Hakim 💗</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial', sans-serif;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      animation: slideshow 15s infinite;
+      background-size: cover;
+      background-position: center;
+    }
+
+    @keyframes slideshow {
+      0% { background-image: url('syahira1.jpg'); }
+      33% { background-image: url('syahira2.jpg'); }
+      66% { background-image: url('hakim_syahira.jpg'); }
+      100% { background-image: url('syahira1.jpg'); }
+    }
+
+    .overlay {
+      position: relative;
+      background-color: rgba(255, 240, 245, 0.8);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 30px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 20px;
+      padding: 30px;
+      max-width: 600px;
+      width: 100%;
+      margin: auto;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    h1 {
+      color: #ff66a3;
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+
+    .heart {
+      font-size: 40px;
+      color: #ff4d88;
+      animation: pulse 1.2s infinite;
+      margin-bottom: 20px;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+      100% { transform: scale(1); }
+    }
+
+    .chat-bubble {
+      display: inline-block;
+      background: #ffe0ec;
+      color: #333;
+      padding: 12px 18px;
+      border-radius: 20px;
+      margin: 10px auto;
+      max-width: 80%;
+      text-align: left;
+      position: relative;
+      font-size: 17px;
+    }
+
+    .chat-bubble::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 20px;
+      width: 0;
+      height: 0;
+      border: 10px solid transparent;
+      border-top-color: #ffe0ec;
+      border-bottom: 0;
+      margin-left: -5px;
+      margin-bottom: -10px;
+    }
+
+    .emoji {
+      display: block;
+      font-size: 22px;
+      margin-top: 8px;
+      text-align: right;
+    }
+
+    button {
+      background-color: #ff66a3;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 30px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background-color: #e0558d;
+    }
+
+    footer {
+      margin-top: 30px;
+      font-size: 14px;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+  <div class="background"></div>
+
+  <div class="overlay">
+    <div class="card">
+      <div class="heart">❤️</div>
+      <h1>To My Baby Hakim</h1>
+      <div class="chat-bubble" id="message"></div>
+      <button onclick="nextMessage()">tap sini babyy 😚</button>
+      <footer>Made with love 💘 | 20 May 2025</footer>
+    </div>
+  </div>
+
+  <audio autoplay loop>
+    <source src="song.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    const messages = [
+      { text: "sini abang, sini 🥺 ayang windu angatt 💋💋", emoji: "🥺💘" },
+      { text: "abang tau tak, abang ni clingy angatt angatt au… tapi ayang suka 🥰", emoji: "💕😚" },
+      { text: "thankyouu abang shomellkuu sebab selalu ada walaupun ayang selalu sakitkan hati abang 😢", emoji: "😭💞" },
+      { text: "abang selalu sabar dengan perangai ayang… omoo baiknya abang 😔💗", emoji: "🫶🌸" },
+      { text: "everydayy abang buat ayang happyy, happy sampai masuk dalam mimpi hihi rawrr 🫦🩷", emoji: "😻💤" },
+      { text: "ayang sayang abang sangat-sangat, dari hujung rambut sampai hujung kaki 💖", emoji: "🐻💘" },
+      { text: "abang janji tau… jangan tinggal ayang sorang-sorang 🫶 forever & always, your sayangg 💞", emoji: "👩‍❤️‍👨🔒" }
+    ];
+
+    const buttonTexts = [
+      "tap sini babyy 😚",
+      "lagi skali tekan 😘",
+      "jangan stop abangg 🥺",
+      "tap laju-laju abang hehe yummyy 😋🐻",
+      "eh comel sangat la babyy 💖",
+      "last skit je lagi 😚",
+      "sayang abang selamanya 🫶",
+      "dah habis babyyy 🎁"
+    ];
+
+    let index = 0;
+    const msgEl = document.getElementById("message");
+    const button = document.querySelector("button");
+
+    function nextMessage() {
+      if (index < messages.length) {
+        msgEl.innerHTML = messages[index].text + '<span class="emoji">' + messages[index].emoji + '</span>';
+        button.textContent = buttonTexts[Math.min(index + 1, buttonTexts.length - 1)];
+      } else {
+        msgEl.innerHTML = "dah habis dah babyy 🥺 tunggu next surprise pulakk okiee💕<span class='emoji'>🎁💌</span>";
+        button.textContent = "nak lagi? tunggu yaa my cinta hatii 😘";
+      }
+      index++;
+    }
+
+    nextMessage();
+  </script>
+</body>
+</html>
